@@ -1,7 +1,10 @@
-StickerFast WA
+# StickerFast WA
 
-state: "Development"
-python version: Python 3.10.4
+StickerFast WA is a desktop app to make sticker packs for Whatsapp
+
+- state: "Development"
+- python version: Python 3.10.4
+- os building: Linux Ubuntu
 
 # Getting started
 
