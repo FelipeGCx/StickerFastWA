@@ -1,4 +1,8 @@
-from venv import create
+from PIL import Image, ImageDraw, ImageOps, GifImagePlugin
+from os.path import isfile, join
+from gi.repository import GLib
+from munch import DefaultMunch
+from datetime import datetime
 import webbrowser
 import subprocess
 import platform
@@ -7,13 +11,6 @@ import base64
 import shutil
 import json
 import os
-from datetime import datetime
-
-from yaml import serialize
-from munch import DefaultMunch
-from os.path import isfile, join
-from gi.repository import GLib
-from PIL import Image, ImageDraw, ImageOps, GifImagePlugin
 
 
 class Sfwa():
