@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>StickerFast WA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body onload="init()">
+  <div class="main-container">
+    <header class="pywebview-drag-region">
+      <div class="icon">
+        <svg viewBox="0 0 24 24">
+          <g id="icon">
+            <path
+              d="M8.22,2.74A10,10,0,0,1,21.55,9a10.14,10.14,0,0,1,.3,4.71A9.94,9.94,0,0,1,20,17.94a10.17,10.17,0,0,1-2.76,2.55,10,10,0,0,1-10,.32l-2.42.62a1.9,1.9,0,0,1-1.47-.22,1.86,1.86,0,0,1-.87-1.6,2.79,2.79,0,0,1,.21-.94c.18-.59.38-1.18.56-1.77A10,10,0,0,1,8.22,2.74Zm2.83,1.19A8.09,8.09,0,0,0,6.93,5.65a8.11,8.11,0,0,0-3,7.47,8,8,0,0,0,1.38,3.52c-.31,1-.63,2-1,3l3.17-.82A8.62,8.62,0,0,0,9,19.54a8.14,8.14,0,0,0,10.34-4,8,8,0,0,0,.8-4.21,8.14,8.14,0,0,0-1.24-3.73A8.24,8.24,0,0,0,15.1,4.49,8.12,8.12,0,0,0,11.05,3.93Z"
+              transform="translate(0 0)" fill="#fff" />
+            <path
+              d="M7.51,8.08V7.27l.33.23,1.33,1,1.06.76.87.63,1,.7V7.27l6.07,4.36.05,0-.21.15L16.33,13l-4.25,3.06c0-.53,0-1,0-1.57V12.77l-1.26.9-1,.73-1,.71L7.56,16l0,0v-8Z"
+              transform="translate(0 0)" fill="#fff" />
+            <path
+              d="M20.1,11.36a8.07,8.07,0,0,0-1.24-3.72,8.14,8.14,0,0,0-7.81-3.71A8.09,8.09,0,0,0,6.93,5.65a8.12,8.12,0,0,0-3,7.48,8,8,0,0,0,1.38,3.51c-.31,1-.63,2-1,3l3.17-.82A8.62,8.62,0,0,0,9,19.54a8.14,8.14,0,0,0,10.34-4A8,8,0,0,0,20.1,11.36ZM18,11.81,16.33,13l-4.25,3.06c0-.53,0-1,0-1.57V12.77l-1.26.9-1,.73-1,.71L7.56,16l0,0V7.27l.33.23,1.33,1,1.06.76.87.62,1,.71V7.27l6.07,4.36.05,0Z"
+              transform="translate(0 0)" fill="#27c900" />
+          </g>
+        </svg>
+      </div>
+      <h1>StickerFast WA</h1>
+      <div class="buttons">
+        <button class="minimize" onclick="minimizeApp()">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M6.975 21q-.425 0-.7-.288Q6 20.425 6 20t.287-.712Q6.575 19 7 19h10.025q.425 0 .7.288.275.287.275.712t-.288.712Q17.425 21 17 21Z" />
+          </svg>
+        </button>
+        <button class="close" onclick="closeApp()">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="m12 13.4-4.9 4.9q-.275.275-.7.275-.425 0-.7-.275-.275-.275-.275-.7 0-.425.275-.7l4.9-4.9-4.9-4.9q-.275-.275-.275-.7 0-.425.275-.7.275-.275.7-.275.425 0 .7.275l4.9 4.9 4.9-4.9q.275-.275.7-.275.425 0 .7.275.275.275.275.7 0 .425-.275.7L13.4 12l4.9 4.9q.275.275.275.7 0 .425-.275.7-.275.275-.7.275-.425 0-.7-.275Z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main>
+      <!-- i'm pretending call createPack with submit action but i have a problem with the default text validity on inputs requireds -->
+      <form id="form">
+        <div class="package">
+          <div data-tooltip="sticker maker" data-flow="bottom">
+            <input type="radio" id="stickerMaker" checked name="package">
+            </input>
+            <label for="stickerMaker"><svg viewBox="0 0 24 24" fill="currentColor">
+                <g id="icon">
+                  <path
+                    d="M17.47,20.4H5.74A2.75,2.75,0,0,1,3,17.65V5.86A2.75,2.75,0,0,1,5.74,3.1h6.8a.5.5,0,0,1,.49.5V4.77a.5.5,0,0,1-.49.5H5.74a.58.58,0,0,0-.59.59V17.65a.58.58,0,0,0,.59.59H17.47a.58.58,0,0,0,.59-.59v-7a.49.49,0,0,1,.49-.5h1.17a.49.49,0,0,1,.49.5v7A2.74,2.74,0,0,1,17.47,20.4Z"
+                    transform="translate(0 0)" />
+                  <path
+                    d="M20.32,4.61a1.88,1.88,0,0,0-.58-1.38,1.79,1.79,0,0,0-1.34-.6,2.21,2.21,0,0,0-1.44.7L10.73,9.56a.55.55,0,0,0-.15.28L10,12.12a.72.72,0,0,0,.18.67h0a.7.7,0,0,0,.66.19l2.23-.5a.56.56,0,0,0,.28-.16l6.27-6.27A2.18,2.18,0,0,0,20.32,4.61Zm-1.89-.9A.74.74,0,0,1,19,4a.86.86,0,0,1-.07,1.29l-.25.25L17.48,4.34l.26-.27A1.21,1.21,0,0,1,18.43,3.71ZM11.21,11.8l.34-1.41a.56.56,0,0,1,.16-.28l5-5,1.18,1.18-5.05,5a.56.56,0,0,1-.29.16Z"
+                    transform="translate(0 0)" />
+                </g>
+              </svg></label>
+          </div>
+          <div data-tooltip="wemoji" data-flow="bottom">
+            <input type="radio" id="wemoji" name="package">
+            </input>
+            <label for="wemoji">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <g id="icon">
+                  <path
+                    d="M9,3.53A8.92,8.92,0,1,1,7.76,19.76L3,21c.4-1.47.81-2.95,1.22-4.42,0-.09.08-.18,0-.27A8.92,8.92,0,0,1,9,3.53ZM9,5.17A7.5,7.5,0,0,0,6.79,6.66a7.4,7.4,0,0,0-1,9.34c0,.07.12.14.07.23-.24.88-.48,1.77-.73,2.65.95-.24,1.89-.5,2.83-.73a7.72,7.72,0,0,0,2.25,1A7.45,7.45,0,0,0,14.31,19,7.4,7.4,0,0,0,15.86,5.56,7.52,7.52,0,0,0,9,5.17Z"
+                    transform="translate(0 0)" />
+                  <path d="M9,8.06A1.53,1.53,0,1,1,7.8,9.67,1.55,1.55,0,0,1,9,8.06Z" transform="translate(0 0)" />
+                  <path d="M14.48,8.06a1.53,1.53,0,1,1-1.16,1.67A1.55,1.55,0,0,1,14.48,8.06Z"
+                    transform="translate(0 0)" />
+                  <path d="M7.57,12.78h9a4.46,4.46,0,0,1-.85,2.62,4.49,4.49,0,0,1-8.14-2.62Z"
+                    transform="translate(0 0)" />
+                </g>
+              </svg>
+            </label>
+          </div>
+          <div data-tooltip="animated" data-flow="bottom" id="textAnimated">
+            <input type="checkbox" id="animated" onchange="warningAnimated(event)">
+            </input>
+            <label for="animated">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="animated">
+                <path
+                  d="m13.05 13.5 4.15-2.65q.475-.275.475-.85t-.475-.85L13.05 6.5q-.5-.325-1.025-.05-.525.275-.525.875v5.35q0 .6.525.875t1.025-.05ZM8 18q-.825 0-1.412-.587Q6 16.825 6 16V4q0-.825.588-1.413Q7.175 2 8 2h12q.825 0 1.413.587Q22 3.175 22 4v12q0 .825-.587 1.413Q20.825 18 20 18Zm0-2h12V4H8v12Zm-4 6q-.825 0-1.412-.587Q2 20.825 2 20V7q0-.425.288-.713Q2.575 6 3 6t.713.287Q4 6.575 4 7v13h13q.425 0 .712.288.288.287.288.712t-.288.712Q17.425 22 17 22ZM8 4v12V4Z" />
+              </svg>
+            </label>
+          </div>
+        </div>
+        <div class="for-required">
+          <input type="text" class="name-pack" placeholder="Name Pack" tabindex="1" id="textNamePack" required />
+          <div class="required-msg" id="requiredNamePack">
+            <p id="requiredMsgNamePack">required</p>
+          </div>
+        </div>
+        <div class="for-required">
+          <input type="text" class="author-pack" placeholder="Author" tabindex="2" id="textNameAuthor" required />
+          <div class="required-msg" id="requiredAuthor">
+            <p id="requiredMsgAuthor">required</p>
+          </div>
+        </div>
+        <span class="max-img" id="textMaxImgs">Max Images</span>
+        <div class="for-required">
+          <div class="folder">
+            <button class="open-folder" data-tooltip="Open Folde" data-flow="right" id="textOpenFolder"
+              onclick="openFolder(event)">
+              <svg fill="currentColor" viewBox="0 0 48 48">
+                <path
+                  d="M7 40q-1.15 0-2.075-.925Q4 38.15 4 37V11q0-1.15.925-2.075Q5.85 8 7 8h12.8q.6 0 1.175.25.575.25.975.65l2.1 2.1H41q1.15 0 2.075.925Q44 12.85 44 14H22.75l-3-3H7v26l4.5-17.75q.25-1 1.1-1.625.85-.625 1.85-.625H43.1q1.45 0 2.4 1.15t.55 2.6l-4.4 16.95q-.3 1.2-1.1 1.75T38.5 40Zm3.15-3h28.6l4.2-17h-28.6Zm0 0 4.2-17-4.2 17ZM7 17v-6 6Z" />
+              </svg>
+            </button>
+            <input type="text" disabled id="textInputFolder" value="" required />
+            <button class="browse-folder" tabindex="3" data-tooltip="Browse Folder" data-flow="left"
+              id="textBrowseFolder" onclick="selectFolder(event)">
+              <svg fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M6.7,10.1c-1.1,0-1.9,0.8-1.9,1.9s0.8,1.9,1.9,1.9s1.9-0.8,1.9-1.9S7.6,10.1,6.7,10.1z M17.3,10.1
+	c-1.1,0-1.9,0.8-1.9,1.9s0.8,1.9,1.9,1.9s1.9-0.8,1.9-1.9S18.3,10.1,17.3,10.1z M12,10.1c-1.1,0-1.9,0.8-1.9,1.9s0.8,1.9,1.9,1.9 s1.9-0.8,1.9-1.9S13.1,10.1,12,10.1z" />
+              </svg>
+            </button>
+            <div class="required-msg" id="requiredDir">
+              <p id="requiredMsgDir">required</p>
+            </div>
+          </div>
+        </div>
+        <div class="for-required">
+          <div class="icon" data-tooltip="Select Icon" data-flow="bottom" id="textSelectIcon">
+            <input type="text" id="iconDirectory" value="" required>
+            <button tabindex="4" onclick="selectIcon(event)">
+              <img src="../assets/images/default_tray_icon.png" alt="" srcset="" id="imageIcon" />
+            </button>
+          </div>
+          <div class="required-msg" id="requiredIcon">
+            <p id="requiredMsgIcon">required</p>
+          </div>
+        </div>
+        <div class="conserve-imgs">
+          <div class="checkbox">
+            <input type="checkbox" id="conserveImgs" checked tabindex="5" />
+            <svg class="cbx-true" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 17q2.075 0 3.538-1.463Q17 14.075 17 12t-1.462-3.538Q14.075 7 12 7 9.925 7 8.463 8.462 7 9.925 7 12q0 2.075 1.463 3.537Q9.925 17 12 17Zm0 5q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z" />
+            </svg>
+            <svg class="cbx-false" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z" />
+            </svg>
+          </div>
+          <label for="conserve-imgs" class="text" id="textConserveImgs">Conserve Imgs</label>
+        </div>
+        <button class="main-button" onclick="createPack(event)" tabindex="6" id="textCreatePack">
+          Create Pack
+        </button>
+        <!-- <button class="main-button" type="submit" tabindex="6" id="textCreatePack">
+          Create Pack
+        </button> -->
+        <span class="version | textVersion" id="textVersion">version</span>
+      </form>
+      <div class="sidebar">
+        <button data-tooltip="configuración" data-flow="left" onclick="stateSettings(true)" id="textSettings">
+          <svg viewBox="0 0 40 40" fill="currentColor">
+            <path
+              d="M22.875 36.667h-5.75q-.5 0-.896-.334-.396-.333-.479-.833l-.625-4.125q-.708-.25-1.437-.687-.73-.438-1.355-.896L8.542 31.5q-.5.208-1 .042-.5-.167-.75-.625l-2.875-5.042q-.292-.458-.167-.979.125-.521.542-.854L7.75 21.5q-.083-.333-.104-.75-.021-.417-.021-.75t.021-.75q.021-.417.104-.75l-3.458-2.542q-.417-.333-.542-.854-.125-.521.167-.979l2.875-5.042q.25-.5.75-.645.5-.146 1 .062l3.791 1.708q.625-.458 1.375-.896.75-.437 1.417-.687L15.75 4.5q.083-.5.479-.833.396-.334.896-.334h5.75q.5 0 .896.334.396.333.479.833l.625 4.125q.708.25 1.458.667.75.416 1.334.916L31.458 8.5q.5-.208 1-.042.5.167.75.625l2.875 5.042q.292.458.167.979-.125.521-.542.854l-3.458 2.459q.083.375.104.791.021.417.021.792 0 .375-.021.771t-.104.771l3.417 2.5q.416.333.541.854.125.521-.125.979l-2.875 5q-.291.5-.791.667-.5.166-1-.042l-3.75-1.708q-.625.458-1.355.916-.729.459-1.437.667L24.25 35.5q-.083.5-.479.833-.396.334-.896.334Zm-2.833-11.125q2.291 0 3.916-1.625T25.583 20q0-2.292-1.625-3.917t-3.916-1.625q-2.334 0-3.959 1.625T14.458 20q0 2.292 1.625 3.917t3.959 1.625Zm0-2.75q-1.167 0-1.98-.813-.812-.812-.812-1.979t.812-1.979q.813-.813 1.98-.813 1.125 0 1.937.813.813.812.813 1.979t-.813 1.979q-.812.813-1.937.813ZM20 20Zm-1.792 13.875h3.542l.583-4.583q1.375-.334 2.563-1.021 1.187-.688 2.146-1.646l4.333 1.833L33 25.542l-3.792-2.834q.167-.666.271-1.333.104-.667.104-1.375t-.083-1.375q-.083-.667-.292-1.333L33 14.458l-1.625-2.916-4.333 1.833q-.959-1.042-2.125-1.729-1.167-.688-2.584-.938l-.541-4.583H18.25l-.583 4.583q-1.375.292-2.563.98-1.187.687-2.146 1.687l-4.333-1.833L7 14.458l3.792 2.834q-.167.666-.271 1.333-.104.667-.104 1.375t.104 1.375q.104.667.271 1.333L7 25.542l1.625 2.916 4.333-1.833q.959.958 2.146 1.646 1.188.687 2.563 1.021Z" />
+          </svg></button><button data-tooltip="info" data-flow="left" onclick="stateInformation(true)" id="textInfo">
+          <svg viewBox="0 0 40 40" fill="currentColor">
+            <path
+              d="M20.083 28.333q.584 0 .979-.395.396-.396.396-.98v-7.291q0-.542-.396-.938-.395-.396-.979-.396-.583 0-.979.396t-.396.979V27q0 .542.396.938.396.395.979.395ZM20 15.167q.625 0 1.042-.417.416-.417.416-1.042t-.416-1.062q-.417-.438-1.042-.438t-1.042.438q-.416.437-.416 1.062t.416 1.042q.417.417 1.042.417Zm0 21.5q-3.5 0-6.542-1.292-3.041-1.292-5.291-3.542-2.25-2.25-3.542-5.291Q3.333 23.5 3.333 20t1.292-6.542q1.292-3.041 3.542-5.291 2.25-2.25 5.291-3.542Q16.5 3.333 20 3.333t6.542 1.292q3.041 1.292 5.291 3.542 2.25 2.25 3.542 5.291Q36.667 16.5 36.667 20t-1.292 6.542q-1.292 3.041-3.542 5.291-2.25 2.25-5.291 3.542Q23.5 36.667 20 36.667ZM20 20Zm0 13.875q5.75 0 9.812-4.063Q33.875 25.75 33.875 20q0-5.75-4.063-9.812Q25.75 6.125 20 6.125q-5.75 0-9.812 4.063Q6.125 14.25 6.125 20q0 5.75 4.063 9.812Q14.25 33.875 20 33.875Z" />
+          </svg>
+        </button>
+      </div>
+      <div class="settings" id="settings">
+        <div class="back" onclick="stateSettings(false)"></div>
+        <div class="card">
+          <div class="theme-mode">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 15q1.25 0 2.125-.875T15 12q0-1.25-.875-2.125T12 9q-1.25 0-2.125.875T9 12q0 1.25.875 2.125T12 15Zm0 2q-2.075 0-3.537-1.463Q7 14.075 7 12t1.463-3.538Q9.925 7 12 7t3.538 1.462Q17 9.925 17 12q0 2.075-1.462 3.537Q14.075 17 12 17ZM2 13q-.425 0-.712-.288Q1 12.425 1 12t.288-.713Q1.575 11 2 11h2q.425 0 .713.287Q5 11.575 5 12t-.287.712Q4.425 13 4 13Zm18 0q-.425 0-.712-.288Q19 12.425 19 12t.288-.713Q19.575 11 20 11h2q.425 0 .712.287.288.288.288.713t-.288.712Q22.425 13 22 13Zm-8-8q-.425 0-.712-.288Q11 4.425 11 4V2q0-.425.288-.713Q11.575 1 12 1t.713.287Q13 1.575 13 2v2q0 .425-.287.712Q12.425 5 12 5Zm0 18q-.425 0-.712-.288Q11 22.425 11 22v-2q0-.425.288-.712Q11.575 19 12 19t.713.288Q13 19.575 13 20v2q0 .425-.287.712Q12.425 23 12 23ZM5.65 7.05 4.575 6q-.3-.275-.288-.7.013-.425.288-.725.3-.3.725-.3t.7.3L7.05 5.65q.275.3.275.7 0 .4-.275.7-.275.3-.687.287-.413-.012-.713-.287ZM18 19.425l-1.05-1.075q-.275-.3-.275-.712 0-.413.275-.688.275-.3.688-.287.412.012.712.287L19.425 18q.3.275.288.7-.013.425-.288.725-.3.3-.725.3t-.7-.3ZM16.95 7.05q-.3-.275-.287-.688.012-.412.287-.712L18 4.575q.275-.3.7-.288.425.013.725.288.3.3.3.725t-.3.7L18.35 7.05q-.3.275-.7.275-.4 0-.7-.275ZM4.575 19.425q-.3-.3-.3-.725t.3-.7l1.075-1.05q.3-.275.713-.275.412 0 .687.275.3.275.288.688-.013.412-.288.712L6 19.425q-.275.3-.7.287-.425-.012-.725-.287ZM12 12Z" />
+            </svg>
+            <p id="textThemeMode">Theme Mode</p>
+            <div class="checkbox-theme">
+              <input type="checkbox" onchange="setThemeModeCbx(event)" id="checkboxTheme" />
+              <svg class="cbx-true" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7 18q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h10q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18Zm10-2q1.65 0 2.825-1.175Q21 13.65 21 12q0-1.65-1.175-2.825Q18.65 8 17 8H7Q5.35 8 4.175 9.175 3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-1q1.25 0 2.125-.875T20 12q0-1.25-.875-2.125T17 9q-1.25 0-2.125.875T14 12q0 1.25.875 2.125T17 15Zm-5-3Z" />
+              </svg>
+              <svg class="cbx-false" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M7 18q-2.5 0-4.25-1.75T1 12q0-2.5 1.75-4.25T7 6h10q2.5 0 4.25 1.75T23 12q0 2.5-1.75 4.25T17 18Zm0-2h10q1.65 0 2.825-1.175Q21 13.65 21 12q0-1.65-1.175-2.825Q18.65 8 17 8H7Q5.35 8 4.175 9.175 3 10.35 3 12q0 1.65 1.175 2.825Q5.35 16 7 16Zm0-1q1.25 0 2.125-.875T10 12q0-1.25-.875-2.125T7 9q-1.25 0-2.125.875T4 12q0 1.25.875 2.125T7 15Zm5-3Z" />
+              </svg>
+            </div>
+          </div>
+          <div class="language">
+            <div class="selector">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 22q-2.05 0-3.875-.788-1.825-.787-3.187-2.15-1.363-1.362-2.15-3.187Q2 14.05 2 12q0-2.075.788-3.887.787-1.813 2.15-3.175Q6.3 3.575 8.125 2.787 9.95 2 12 2q2.075 0 3.887.787 1.813.788 3.175 2.151 1.363 1.362 2.15 3.175Q22 9.925 22 12q0 2.05-.788 3.875-.787 1.825-2.15 3.187-1.362 1.363-3.175 2.15Q14.075 22 12 22Zm3.95-14h2.95q-.725-1.25-1.813-2.175Q16 4.9 14.6 4.45q.45.825.788 1.712.337.888.562 1.838ZM10.1 8h3.8q-.3-1.1-.775-2.075Q12.65 4.95 12 4.05q-.65.9-1.125 1.875T10.1 8Zm-5.85 6h3.4q-.075-.5-.113-.988Q7.5 12.525 7.5 12t.037-1.012q.038-.488.113-.988h-3.4q-.125.5-.188.988Q4 11.475 4 12t.062 1.012q.063.488.188.988Zm5.15 5.55q-.45-.825-.787-1.713Q8.275 16.95 8.05 16H5.1q.725 1.25 1.812 2.175Q8 19.1 9.4 19.55ZM5.1 8h2.95q.225-.95.563-1.838.337-.887.787-1.712Q8 4.9 6.912 5.825 5.825 6.75 5.1 8ZM12 19.95q.65-.9 1.125-1.875T13.9 16h-3.8q.3 1.1.775 2.075.475.975 1.125 1.875ZM9.65 14h4.7q.075-.5.113-.988.037-.487.037-1.012t-.037-1.012q-.038-.488-.113-.988h-4.7q-.075.5-.112.988Q9.5 11.475 9.5 12t.038 1.012q.037.488.112.988Zm4.95 5.55q1.4-.45 2.487-1.375Q18.175 17.25 18.9 16h-2.95q-.225.95-.562 1.837-.338.888-.788 1.713ZM16.35 14h3.4q.125-.5.188-.988Q20 12.525 20 12t-.062-1.012q-.063-.488-.188-.988h-3.4q.075.5.112.988.038.487.038 1.012t-.038 1.012q-.037.488-.112.988Z" />
+              </svg>
+              <p id="textLanguage">Language</p>
+              <img src="../assets/icons/countries/es.svg" id="iconLang" />
+            </div>
+            <div class="options">
+              <div data-tooltip="Es" data-flow="bottom">
+                <input type="radio" id="lang-es" name="lang" onchange="changeLanguage('es')">
+                </input>
+                <label for="lang-es"> <img src="../assets/icons/countries/es.svg" /></label>
+              </div>
+              <div data-tooltip="En" data-flow="bottom">
+                <input type="radio" id="lang-en" name="lang" onchange="changeLanguage('en')">
+                </input>
+                <label for="lang-en"> <img src="../assets/icons/countries/en.svg" /></label>
+              </div>
+              <div data-tooltip="Fr" data-flow="bottom">
+                <input type="radio" id="lang-fr" name="lang" onchange="changeLanguage('fr')">
+                </input>
+                <label for="lang-fr"> <img src="../assets/icons/countries/fr.svg" /></label>
+              </div>
+              <div data-tooltip="It" data-flow="top">
+                <input type="radio" id="lang-it" name="lang" onchange="changeLanguage('it')">
+                </input>
+                <label for="lang-it"> <img src="../assets/icons/countries/it.svg" /></label>
+              </div>
+              <div data-tooltip="De" data-flow="top">
+                <input type="radio" id="lang-de" name="lang" onchange="changeLanguage('de')">
+                </input>
+                <label for="lang-de"> <img src="../assets/icons/countries/de.svg" /></label>
+              </div>
+              <div data-tooltip="Pt" data-flow="top">
+                <input type="radio" id="lang-pt" name="lang" onchange="changeLanguage('pt')">
+                </input>
+                <label for="lang-pt"> <img src="../assets/icons/countries/pt.svg" /></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="information" id="info">
+        <div class="back" onclick="stateInformation(false)" id="backInfo"></div>
+        <div class="card">
+          <div class="data">
+            <h1>StickerFast WA</h1>
+            <p class="v | textVersion">version</p>
+            <svg viewBox="0 0 24 24">
+              <g id="icon">
+                <path
+                  d="M8.22,2.74A10,10,0,0,1,21.55,9a10.14,10.14,0,0,1,.3,4.71A9.94,9.94,0,0,1,20,17.94a10.17,10.17,0,0,1-2.76,2.55,10,10,0,0,1-10,.32l-2.42.62a1.9,1.9,0,0,1-1.47-.22,1.86,1.86,0,0,1-.87-1.6,2.79,2.79,0,0,1,.21-.94c.18-.59.38-1.18.56-1.77A10,10,0,0,1,8.22,2.74Zm2.83,1.19A8.09,8.09,0,0,0,6.93,5.65a8.11,8.11,0,0,0-3,7.47,8,8,0,0,0,1.38,3.52c-.31,1-.63,2-1,3l3.17-.82A8.62,8.62,0,0,0,9,19.54a8.14,8.14,0,0,0,10.34-4,8,8,0,0,0,.8-4.21,8.14,8.14,0,0,0-1.24-3.73A8.24,8.24,0,0,0,15.1,4.49,8.12,8.12,0,0,0,11.05,3.93Z"
+                  transform="translate(0 0)" fill="#fff" />
+                <path
+                  d="M7.51,8.08V7.27l.33.23,1.33,1,1.06.76.87.63,1,.7V7.27l6.07,4.36.05,0-.21.15L16.33,13l-4.25,3.06c0-.53,0-1,0-1.57V12.77l-1.26.9-1,.73-1,.71L7.56,16l0,0v-8Z"
+                  transform="translate(0 0)" fill="#fff" />
+                <path
+                  d="M20.1,11.36a8.07,8.07,0,0,0-1.24-3.72,8.14,8.14,0,0,0-7.81-3.71A8.09,8.09,0,0,0,6.93,5.65a8.12,8.12,0,0,0-3,7.48,8,8,0,0,0,1.38,3.51c-.31,1-.63,2-1,3l3.17-.82A8.62,8.62,0,0,0,9,19.54a8.14,8.14,0,0,0,10.34-4A8,8,0,0,0,20.1,11.36ZM18,11.81,16.33,13l-4.25,3.06c0-.53,0-1,0-1.57V12.77l-1.26.9-1,.73-1,.71L7.56,16l0,0V7.27l.33.23,1.33,1,1.06.76.87.62,1,.71V7.27l6.07,4.36.05,0Z"
+                  transform="translate(0 0)" fill="#27c900" />
+              </g>
+            </svg>
+            <div class="creator">
+              <p>By Felipe Gómez</p>
+              <button onclick="openGithub()">
+                <svg class="icon" fill="currentColor" viewBox="0 0 30 30">
+                  <path
+                    d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z" />
+                </svg>
+              </button>
+            </div>
+            <span></span>
+          </div>
+          <div class="docs">
+            <button onclick="openLicense()" id="textLicense">License</button>
+            <button onclick="openTerms()" id="textTerms">Terms</button>
+          </div>
+        </div>
+      </div>
+      <div class="warning-animated" id="warningAnimated">
+        <div class="back"></div>
+        <div class="card">
+          <h1 id="textWarningTitle">Warning Title</h1>
+          <p id="textWarningDescription">Warning Description</p>
+          <span id="textMaxSize">Max. size: 512 x 512</span>
+          <span id="textMaxWeight">Max. weight: 170KB</span>
+          <span id="textFormat">Format: .wepb</span>
+          <div class="no-show-more">
+            <div class="checkbox">
+              <input type="checkbox" id="no-show-more" />
+              <svg class="cbx-true" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 17q2.075 0 3.538-1.463Q17 14.075 17 12t-1.462-3.538Q14.075 7 12 7 9.925 7 8.463 8.462 7 9.925 7 12q0 2.075 1.463 3.537Q9.925 17 12 17Zm0 5q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z" />
+              </svg>
+              <svg class="cbx-false" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 22q-2.075 0-3.9-.788-1.825-.787-3.175-2.137-1.35-1.35-2.137-3.175Q2 14.075 2 12t.788-3.9q.787-1.825 2.137-3.175 1.35-1.35 3.175-2.138Q9.925 2 12 2t3.9.787q1.825.788 3.175 2.138 1.35 1.35 2.137 3.175Q22 9.925 22 12t-.788 3.9q-.787 1.825-2.137 3.175-1.35 1.35-3.175 2.137Q14.075 22 12 22Zm0-2q3.35 0 5.675-2.325Q20 15.35 20 12q0-3.35-2.325-5.675Q15.35 4 12 4 8.65 4 6.325 6.325 4 8.65 4 12q0 3.35 2.325 5.675Q8.65 20 12 20Zm0-8Z" />
+              </svg>
+            </div>
+            <label for="no-show-more" class="text" id="textNoShowMore">Don't Show More</label>
+          </div>
+          <button onclick="setShowWarningAnimated()" id="textAccept">Accept</button>
+        </div>
+      </div>
+      <div class="animation-loop" id="animationLoop">
+        <div class="back | animback"></div>
+        <div class="card">
+          <div class="flower-spinner">
+            <div class="dots-container">
+              <div class="bigger-dot">
+                <div class="smaller-dot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="success" id="success">
+        <div class="back"></div>
+        <div class="card">
+          <div class="for-shadow">
+            <div class="ready">
+              <h1 id="textReady">
+                It's Ready!
+              </h1>
+            </div>
+          </div>
+          <svg viewBox="0 0 48 48" fill="currentColor">
+            <circle cx="23" cy="23" r="15" class="circle"/>
+            <path
+              d="m21.05 28.55-4.9-4.9q-.45-.45-1.1-.45-.65 0-1.1.45-.5.5-.5 1.175t.45 1.125l6.1 6.1q.4.4 1.05.4t1.05-.4l12-12q.45-.45.45-1.1 0-.65-.5-1.15-.45-.45-1.125-.45t-1.175.5ZM24 44q-4.25 0-7.9-1.525-3.65-1.525-6.35-4.225-2.7-2.7-4.225-6.35Q4 28.25 4 24q0-4.2 1.525-7.85Q7.05 12.5 9.75 9.8q2.7-2.7 6.35-4.25Q19.75 4 24 4q4.2 0 7.85 1.55Q35.5 7.1 38.2 9.8q2.7 2.7 4.25 6.35Q44 19.8 44 24q0 4.25-1.55 7.9-1.55 3.65-4.25 6.35-2.7 2.7-6.35 4.225Q28.2 44 24 44Z" class="path" />
+          </svg>
+
+          <div class="msg">
+            <p id="textSuccessCreate">Pack created successfully</p>
+            <button id="textSuccessAccept" onclick="finish(event)">Accept</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+<script src="main.js"></script>
+
+</html>
