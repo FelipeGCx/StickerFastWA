@@ -426,5 +426,7 @@ function validation() {
 function finish(e) {
     stateSuccess(false);
     openFolder(e);
-    closeApp();
+    setTimeout(() => {
+        closeApp();
+    }, 1000);
 }

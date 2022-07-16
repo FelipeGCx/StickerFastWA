@@ -1,13 +1,8 @@
-from logic.sfwa import Sfwa
 import webview
 import pyautogui
-import threading
-import json
 import sys
-import os
-
-sys.path.append("./src")
-sys.path.append("./src/data")
+sys.path.append("./src/logic/")
+from sfwa import Sfwa
 
 sfwa = Sfwa()
 

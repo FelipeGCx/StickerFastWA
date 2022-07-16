@@ -14,6 +14,11 @@ from PIL import Image, ImageDraw, ImageOps, GifImagePlugin
 
 
 class Sfwa():
+    
+    def __init__(self):
+        global root 
+        root = os.getcwd()
+        print(root)
 
     def get_user_preferences(self):
         file = r'src/data/user.json'
@@ -99,6 +104,7 @@ class Sfwa():
             response = self.create_pack_sticker_maker(data)
         else:
             response == self.create_pack_wemoji(data)
+        os.chdir(root)
         return response
 
     def create_pack_wemoji(self, data):
