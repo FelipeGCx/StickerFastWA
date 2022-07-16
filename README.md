@@ -1,10 +1,10 @@
 # StickerFast WA
 
-StickerFast WA is a desktop app to make sticker packs for Whatsapp
+StickerFast WA is a desktop app to make sticker packs for Whatsapp, it's built in python using [pywebview](https://pywebview.flowrl.com) [repository](https://github.com/r0x0r/pywebview)
 
 - state: "Development"
 - python version: Python 3.10.4
-- os building: Linux Ubuntu
+- built on the OS: Linux Ubuntu
 
 # Getting started
 
