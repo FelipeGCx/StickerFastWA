@@ -27,5 +27,7 @@
   "requiredMsgDir": "Required Directory",
   "requiredMsgIcon": "Required Icon",
   "successReady": "It's ready!",
-  "successCreate": "Pack created successfully"
+  "successCreate": "Pack created successfully",
+  "notesVersion": "Version Notes",
+  "notesDescription": "- Currently the wemoji packs are incompatible. \n -We have some problems with the optimization of the animated stickers, we recommend that you go to https://ezgif.com/optiwebp to optimize them; you must extract the final pack to get the files, optimize the stickers that exceed 500kb, once done, copy and reinsert them into the pack and that's it."
 }

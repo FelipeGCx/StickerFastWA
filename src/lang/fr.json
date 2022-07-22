@@ -26,6 +26,8 @@
   "requiredMsgAuthor": "Auteur obligatoire",
   "requiredMsgDir": "Répertoire obligatoire",
   "requiredMsgIcon": "Icône obligatoire",
-  "successReady" : "C'est prêt!",
-  "successCreate" : "Pack créé avec succès"
+  "successReady": "C'est prêt!",
+  "successCreate": "Pack créé avec succès",
+  "notesVersion": "Notes de version",
+  "notesDescription": "- Actuellement, les packs de wemoji sont incompatibles. \n - Nous avons quelques problèmes avec l'optimisation des autocollants animés, nous vous recommandons d'aller sur https://ezgif.com/optiwebp pour les optimiser ; vous devez extraire le pack final pour obtenir les fichiers, optimiser les autocollants qui dépassent 500kb, une fois fait, copiez-les et réinsérez-les dans le pack et vous avez terminé."
 }

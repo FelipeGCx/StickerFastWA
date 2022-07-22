@@ -60,9 +60,6 @@ function loadLanguage(language) {
     document.getElementById('textTerms').textContent = language.terms;
     document.getElementById('textWarningTitle').textContent = language.warningTitle;
     document.getElementById('textWarningDescription').textContent = language.warningDescription;
-    document.getElementById('textMaxSize').textContent = language.maxSize;
-    document.getElementById('textMaxWeight').textContent = language.maxWeight;
-    document.getElementById('textFormat').textContent = language.warningFormat;
     document.getElementById('textNoShowMore').textContent = language.noShowMore;
     document.getElementById('textAccept').textContent = language.acept;
     document.getElementById("requiredMsgNamePack").textContent = language.requiredMsgNamePack;
