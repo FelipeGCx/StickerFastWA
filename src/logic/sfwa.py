@@ -1,8 +1,9 @@
-from PIL import Image, ImageDraw, ImageOps, GifImagePlugin
+from PIL import Image, ImageDraw, ImageOps, GifImagePlugin, ImageChops
 from os.path import isfile, join
 from gi.repository import GLib
 from munch import DefaultMunch
 from datetime import datetime
+import numpy as np
 import webbrowser
 import subprocess
 import platform
@@ -303,13 +304,14 @@ class Sfwa():
 
     # ~ return an Pillow image object transformed to params passed
     def transform_image(self, file_name, size=(512, 512), radius=8):
+        # has_transparency = self.has_transparency(file_name)
         # convert the radius to the size of the image
         radius = int(size[0]/100 * radius)
         # open the image
         img = Image.open(file_name)
         # parse the color of the image
-        if img.mode != "RGB":
-            img = img.convert("RGB")
+        if img.mode != "RGBA":
+            img = img.convert("RGBA")
         # get the size of the image
         width, heigth = img.size
         # create a exponential size for resize the image
@@ -321,19 +323,20 @@ class Sfwa():
         # make the thumbnail of the image to conserve the proportions
         img.thumbnail(size)
         # create mask for give the shape of the image
+        # mask = Image.new('RGBA', img.size, (0, 0, 0, 0))
         mask = Image.new('L', img.size, 0)
         draw = ImageDraw.Draw(mask)
         # create round rectangle params = ((x, y) + (width, height), radius, fill=0-255 it's the opacity)
         draw.rounded_rectangle((0, 0) + img.size, radius=radius, fill=255)
         # apply the mask to the image
-        img_masked = ImageOps.fit(img, mask.size, centering=(0.5, 0.5))
-        img_masked.putalpha(mask)
+        img_masked = Image.new("RGBA", size, (0, 0, 0, 0))
+        img_masked.paste(img, mask=mask)
         # create background image transparent
-        img_output = Image.new('RGBA', size, (255, 255, 255, 0))
+        img_output = Image.new('RGBA', size, (0, 0, 0, 0))
         # define the position of the image
         x = int((size[0] - img.size[0]) / 2)
         y = int((size[1] - img.size[1]) / 2)
-        # paste the image to the background
+        # paste the image to the background in the center
         img_output.paste(img_masked, (x, y))
         # close the images
         img.close()
@@ -341,6 +344,21 @@ class Sfwa():
         img_masked.close()
         # return the image output #^ remember close the image after use
         return img_output
+    
+    def has_transparency(self,img):
+        if img.info.get("transparency", None) is not None:
+            return True
+        if img.mode == "P":
+            transparent = img.info.get("transparency", -1)
+            for _, index in img.getcolors():
+                if index == transparent:
+                    return True
+        elif img.mode == "RGBA":
+            extrema = img.getextrema()
+            if extrema[3][0] < 255:
+                return True
+
+        return False
 
     # ~ transform the animated image
     def transform_gif(self, file_name, dir, save_name):
@@ -460,6 +478,16 @@ class Sfwa():
                         img = img.resize((512, 512))
                         img.save(f'{destiny}/{file_name}')
                         img.close()
+                    if file.endswith('.png'):
+                        img = Image.open(file)
+                        has_transparency = self.has_transparency(img)
+                        if has_transparency:
+                            # crop the transparent border of the image
+                            self.crop_image(file)
+                        # transform and save the image to webp
+                        img = self.transform_image(file)
+                        img.save(f'{destiny}/{file_name}')
+                        img.close()
                     else:
                         # transform and save the image to webp
                         img = self.transform_image(file)
@@ -482,3 +510,20 @@ class Sfwa():
         img.save(new_file_name, quality=quality, optimize=True)
         img.close()
         return new_file_name  # return the new file name
+
+    def crop_image(self, file):
+        img = Image.open(file)
+        # print(img.split())
+        # print(self.bbox(img))
+        # im2 = img.crop(self.bbox(img))
+        # im2.save(file)
+        img = self.trim(img)
+        img.save(file)
+    
+    def trim(self,im):
+        bg = Image.new(im.mode, im.size, im.getpixel((0,0)))
+        diff = ImageChops.difference(im, bg)
+        diff = ImageChops.add(diff, diff, 2.0, -100)
+        bbox = diff.getbbox()
+        if bbox:
+            return im.crop(bbox)
