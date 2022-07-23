@@ -19,7 +19,6 @@ class Sfwa():
     def __init__(self):
         global root
         root = os.getcwd()
-        print(root)
 
     # ~ GET the user preferences for the GUI
     def get_user_preferences(self):
@@ -344,21 +343,6 @@ class Sfwa():
         img_masked.close()
         # return the image output #^ remember close the image after use
         return img_output
-    
-    def has_transparency(self,img):
-        if img.info.get("transparency", None) is not None:
-            return True
-        if img.mode == "P":
-            transparent = img.info.get("transparency", -1)
-            for _, index in img.getcolors():
-                if index == transparent:
-                    return True
-        elif img.mode == "RGBA":
-            extrema = img.getextrema()
-            if extrema[3][0] < 255:
-                return True
-
-        return False
 
     # ~ transform the animated image
     def transform_gif(self, file_name, dir, save_name):
@@ -449,6 +433,7 @@ class Sfwa():
         # list the image files in the directory
         files = self.files_in_dir(directory)
         checker = 0  # checker for the number of files in the directory
+        file_format = 'webp' # define the final format to the image
         # iterate the image files in the directory
         for file in files:
             checker += 1  # increment the checker
@@ -456,7 +441,7 @@ class Sfwa():
             if checker > 30:
                 break
             # create the name for the image
-            file_name = f"{self.create_name('WS')}{checker}.webp"
+            file_name = f"{self.create_name('WS')}{checker}.{file_format}"
             # check if the pack is animated
             if animated:
                 # validate the file is an animated image
@@ -479,8 +464,9 @@ class Sfwa():
                         img.save(f'{destiny}/{file_name}')
                         img.close()
                     if file.endswith('.png'):
-                        img = Image.open(file)
-                        has_transparency = self.has_transparency(img)
+                        img_png = Image.open(file)
+                        has_transparency = self.has_transparency(img_png)
+                        img_png.close()
                         if has_transparency:
                             # crop the transparent border of the image
                             self.crop_image(file)
@@ -510,13 +496,23 @@ class Sfwa():
         img.save(new_file_name, quality=quality, optimize=True)
         img.close()
         return new_file_name  # return the new file name
+    
+    def has_transparency(self,img):
+        if img.info.get("transparency", None) is not None:
+            return True
+        if img.mode == "P":
+            transparent = img.info.get("transparency", -1)
+            for _, index in img.getcolors():
+                if index == transparent:
+                    return True
+        elif img.mode == "RGBA":
+            extrema = img.getextrema()
+            if extrema[3][0] < 255:
+                return True
+        return False
 
     def crop_image(self, file):
         img = Image.open(file)
-        # print(img.split())
-        # print(self.bbox(img))
-        # im2 = img.crop(self.bbox(img))
-        # im2.save(file)
         img = self.trim(img)
         img.save(file)
     
@@ -525,5 +521,4 @@ class Sfwa():
         diff = ImageChops.difference(im, bg)
         diff = ImageChops.add(diff, diff, 2.0, -100)
         bbox = diff.getbbox()
-        if bbox:
-            return im.crop(bbox)
+        return im.crop(bbox)

@@ -6,10 +6,10 @@ sfwa = Sfwa()
 data = {
     "package":"stickerMaker",
     "animated": False,
-    "namepack": "SMMoviePack",
-    "author": "Felipe",
-    "directory": "/home/felipegcz/Imágenes/TestNormal",
-    "icon": "/home/felipegcz/Imágenes/icon.png",
+    "namepack": "Test",
+    "author": "You",
+    "directory": "",
+    "icon": "",
     "conserve": True,
 }
 
