@@ -9,7 +9,6 @@ StickerFast WA is a desktop app to make sticker packs for Whatsapp, it's built i
 
 # ℹ️ Notes 
 - Currently the wemoji packs are incompatible (I'm work to fix it)
-- It's no longer necessary to format the animated stickers, a gif (and in future versions the webp) is enough.
 - Some animated stickers after processing exceed the 500kb allowed, while I find a solution I suggest to unzip the final package, optimize the stickers that exceed the size in [ezgif](https://ezgif.com/optiwebp) and reinsert them.
 
 # 🚀 Getting started

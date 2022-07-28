@@ -5,7 +5,7 @@ sfwa = Sfwa()
 
 data = {
     "package":"stickerMaker",
-    "animated": False,
+    "animated": True,
     "namepack": "Test",
     "author": "You",
     "directory": "",
