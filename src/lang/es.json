@@ -16,7 +16,7 @@
   "license": "Licencia",
   "terms": "Términos ",
   "warningTitle": "¡Aviso!",
-  "warningDescription": "Actualmente los packs de wemoji son incompatibles. \n - Tenemos algunos problemas con la optimización de los sticker animados, recomendamos que vayas a https://ezgif.com/optiwebp  para optimizarlos; deberas extrar el pack final para obtener los ficheros, optimiza los stickers que superen los 500kb, una vez hecho esto, copia y vuelve a introducirlos en el pack y listo.",
+  "warningDescription": "Tenemos algunos problemas con la optimización de los sticker animados, recomendamos que vayas a https://ezgif.com/optiwebp  para optimizarlos; deberas extrar el pack final para obtener los ficheros, optimiza los stickers que superen los 500kb, una vez hecho esto, copia y vuelve a introducirlos en el pack y listo.",
   "noShowMore": "No volver a mostrar",
   "acept": "Aceptar",
   "requiredMsgNamePack": "Nombre del pack obligatorio",

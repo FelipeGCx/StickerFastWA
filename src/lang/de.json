@@ -16,7 +16,7 @@
   "license": "Lizenz",
   "terms": "Begriffe",
   "warningTitle": "Warnung!",
-  "warningDescription": "Derzeit sind die Wemoji-Pakete nicht kompatibel. \n - Wir haben einige Probleme mit der Optimierung der animierten Aufkleber, empfehlen wir Ihnen, gehen Sie zu https://ezgif.com/optiwebp, um sie zu optimieren; Sie müssen die endgültige Packung extrahieren, um die Dateien zu erhalten, optimieren Sie die Aufkleber, die 500kb überschreiten, einmal getan, kopieren Sie sie und fügen Sie sie zurück in das Paket und Sie sind fertig.",
+  "warningDescription": "Wir haben einige Probleme mit der Optimierung der animierten Aufkleber, empfehlen wir Ihnen, gehen Sie zu https://ezgif.com/optiwebp, um sie zu optimieren; Sie müssen die endgültige Packung extrahieren, um die Dateien zu erhalten, optimieren Sie die Aufkleber, die 500kb überschreiten, einmal getan, kopieren Sie sie und fügen Sie sie zurück in das Paket und Sie sind fertig.",
   "noShowMore": "Nicht mehr anzeigen",
   "acept": "Akzeptieren",
   "requiredMsgNamePack": "Erforderliches Namenspaket",
