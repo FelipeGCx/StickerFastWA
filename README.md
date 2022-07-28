@@ -5,6 +5,8 @@ StickerFast WA is a desktop app to make sticker packs for Whatsapp, it's built i
 - python version: Python 3.10.4
 - built on the OS: Linux Ubuntu
 
+*If you liked this project give me a star*
+
 # ℹ️ Notes 
 - Currently the wemoji packs are incompatible (I'm work to fix it)
 - It's no longer necessary to format the animated stickers, a gif (and in future versions the webp) is enough.
