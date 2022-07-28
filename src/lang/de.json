@@ -16,10 +16,7 @@
   "license": "Lizenz",
   "terms": "Begriffe",
   "warningTitle": "Warnung!",
-  "warningDescription": "Sie müssen die animierten Sticker formatieren, bevor Sie diese Option wählen",
-  "maxSize": "Maximale Größe: 512 x 512",
-  "maxWeight": "Maximales Gewicht: 170KB",
-  "warningFormat": "Format: .webp",
+  "warningDescription": "Derzeit sind die Wemoji-Pakete nicht kompatibel. \n - Wir haben einige Probleme mit der Optimierung der animierten Aufkleber, empfehlen wir Ihnen, gehen Sie zu https://ezgif.com/optiwebp, um sie zu optimieren; Sie müssen die endgültige Packung extrahieren, um die Dateien zu erhalten, optimieren Sie die Aufkleber, die 500kb überschreiten, einmal getan, kopieren Sie sie und fügen Sie sie zurück in das Paket und Sie sind fertig.",
   "noShowMore": "Nicht mehr anzeigen",
   "acept": "Akzeptieren",
   "requiredMsgNamePack": "Erforderliches Namenspaket",
@@ -27,7 +24,5 @@
   "requiredMsgDir": "Erforderliches Verzeichnis",
   "requiredMsgIcon": "Erforderliches Symbol",
   "successReady": "Es ist bereit!",
-  "successCreate": "Paket erfolgreich erstellt",
-  "notesVersion": "Versionshinweise",
-  "notesDescription": "- Derzeit sind die Wemoji-Pakete nicht kompatibel. \n - Wir haben einige Probleme mit der Optimierung der animierten Aufkleber, empfehlen wir Ihnen, gehen Sie zu https://ezgif.com/optiwebp, um sie zu optimieren; Sie müssen die endgültige Packung extrahieren, um die Dateien zu erhalten, optimieren Sie die Aufkleber, die 500kb überschreiten, einmal getan, kopieren Sie sie und fügen Sie sie zurück in das Paket und Sie sind fertig."
+  "successCreate": "Paket erfolgreich erstellt"
 }

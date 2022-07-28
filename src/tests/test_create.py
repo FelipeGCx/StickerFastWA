@@ -4,12 +4,12 @@ from logic.sfwa import Sfwa
 sfwa = Sfwa()
 
 data = {
-    "package":"stickerMaker",
-    "animated": True,
+    "package":"wemoji",
+    "animated": False,
     "namepack": "Test",
     "author": "You",
-    "directory": "",
-    "icon": "",
+    "directory": "/home/felipegcz/Imágenes/TestNormal",
+    "icon": "/home/felipegcz/Imágenes/icon.png",
     "conserve": True,
 }
 

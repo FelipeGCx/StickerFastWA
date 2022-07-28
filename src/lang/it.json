@@ -16,10 +16,7 @@
   "license": "Licenza",
   "terms": "Termini",
   "warningTitle": "Attenzione!",
-  "warningDescription": "È necessario formattare gli adesivi animati prima di scegliere questa opzione",
-  "maxSize": "Dimensione massima: 512 x 512",
-  "maxWeight": "Peso massimo: 170KB",
-  "warningFormat": "Formato: .webp",
+  "warningDescription": "Attualmente i pacchetti di wemoji sono incompatibili. \n - Abbiamo alcuni problemi con l'ottimizzazione degli adesivi animati, vi consigliamo di andare su https://ezgif.com/optiwebp per ottimizzarli; dovete estrarre il pacchetto finale per ottenere i file, ottimizzare gli adesivi che superano i 500kb, una volta fatto, copiateli e inseriteli di nuovo nel pacchetto e il gioco è fatto.",
   "noShowMore": "Non mostrare più",
   "acept": "OK",
   "requiredMsgNamePack": "Pacchetto nome richiesto",
@@ -27,7 +24,5 @@
   "requiredMsgDir": "Directory richiesta",
   "requiredMsgIcon": "Icona richiesta",
   "successReady": "È pronto!",
-  "successCreate": "Pacchetto creato con successo",
-  "notesVersion": "Note sulla versione",
-  "notesDescription": "- Attualmente i pacchetti di wemoji sono incompatibili. \n - Abbiamo alcuni problemi con l'ottimizzazione degli adesivi animati, vi consigliamo di andare su https://ezgif.com/optiwebp per ottimizzarli; dovete estrarre il pacchetto finale per ottenere i file, ottimizzare gli adesivi che superano i 500kb, una volta fatto, copiateli e inseriteli di nuovo nel pacchetto e il gioco è fatto."
+  "successCreate": "Pacchetto creato con successo"
 }

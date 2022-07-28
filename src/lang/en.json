@@ -16,10 +16,7 @@
   "license": "License",
   "terms": "Terms",
   "warningTitle": "Warning!",
-  "warningDescription": "You need to format the animated stickers before you choose this option.",
-  "maxSize": "Max. size: 512 x 512",
-  "maxWeight": "Max. weight: 170KB",
-  "warningFormat": "Format: .webp",
+  "warningDescription": "Currently the wemoji packs are incompatible. \n -We have some problems with the optimization of the animated stickers, we recommend that you go to https://ezgif.com/optiwebp to optimize them; you must extract the final pack to get the files, optimize the stickers that exceed 500kb, once done, copy and reinsert them into the pack and that's it.",
   "noShowMore": "Do not show again",
   "acept": "Accept",
   "requiredMsgNamePack": "Required Name Pack",
@@ -27,7 +24,5 @@
   "requiredMsgDir": "Required Directory",
   "requiredMsgIcon": "Required Icon",
   "successReady": "It's ready!",
-  "successCreate": "Pack created successfully",
-  "notesVersion": "Version Notes",
-  "notesDescription": "- Currently the wemoji packs are incompatible. \n -We have some problems with the optimization of the animated stickers, we recommend that you go to https://ezgif.com/optiwebp to optimize them; you must extract the final pack to get the files, optimize the stickers that exceed 500kb, once done, copy and reinsert them into the pack and that's it."
+  "successCreate": "Pack created successfully"
 }

@@ -236,20 +236,10 @@ class Sfwa:
     # ~ return string, with prefix pass and 17 numbers exaple sufix WS: WS20220712168203521
     def create_name(self, prefix):
         # create the number with the datatime
-        date = datetime.now()
-        year = str(date.year)
-        month = self.set_number(date.month)
-        day = self.set_number(date.day)
-        additional = str(round(date.year / 12))
-        hour = self.set_number(date.hour)
-        minute = self.set_number(date.minute)
-        second = self.set_number(date.second)
-        name = f"{prefix}{year}{month}{day}{additional}{hour}{minute}{second}"
+        date = str(datetime.now())
+        name = date.replace("-", "").replace(":", "").replace(" ", "").split(".")
+        name = f'{prefix}{name[0]}{name[-1][:3]}'
         return name
-
-    # ~ add 0 in the number if it is less than 10
-    def set_number(self, number):
-        return str(f"{0}{number}") if number < 10 else str(number)
 
     # ~ open the text file with the mode passed
     def open_text_file(self, file_name, mode, sentence=None, is_json=False):
@@ -281,7 +271,7 @@ class Sfwa:
             if checker > 30:
                 break
             # create the name for the image
-            file_name = f"{self.create_name('WS')}{checker}.{file_format}"
+            file_name = f"{self.create_name('WS')}.{file_format}"
             # check if the pack is animated
             if animated:
                 # validate the file is an animated image
@@ -290,7 +280,7 @@ class Sfwa:
                     self.transform_gif(file, destiny, file_name)
                 elif self.validate_animated_webp(file):
                     # transform and save the image to webp
-                    self.transform_webp(file,directory, destiny, file_name)
+                    self.transform_webp(file, directory, destiny, file_name)
                 # check if the weight final image is less than 512000
                 # is_valid = self.validate_weight(f"{destiny}/{file_name}")
                 # remove the image if the weight is greater than 512000 to not create compatibility issues
@@ -366,7 +356,6 @@ class Sfwa:
             return True
         else:
             return False
-
 
     # ~ validate the weight of the file
     def validate_weight(self, file_name, weight=512000):
@@ -491,11 +480,14 @@ class Sfwa:
         img.close()
 
     # ~ transform the webp animated image
-    def transform_webp(self, file_name, directory,destiny, save_name):
+    def transform_webp(self, file_name, directory, destiny, save_name):
         name_gif = "webp_to_gif.gif"
-        self.webp_to_gif(f'{directory}/{file_name}', directory, name_gif)
+        # convert the webp to gif
+        self.webp_to_gif(f"{directory}/{file_name}", directory, name_gif)
+        # transform the gif created to the sticker style and saved
         self.transform_gif(name_gif, destiny, save_name)
-        # os.remove(name_gif)
+        # remove the gif created
+        os.remove(f"{directory}{name_gif}")
 
     # ~ parse the webp image to gif
     def webp_to_gif(self, file_name, dir, save_name):

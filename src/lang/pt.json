@@ -16,10 +16,7 @@
   "license": "Licença",
   "terms": "Termos",
   "warningTitle": "Advertência!",
-  "warningDescription": "É necessário formatar os autocolantes animados antes de escolher esta opção",
-  "maxSize": "Tamanho máximo: 512 x 512",
-  "maxWeight": "Peso máximo: 170KB",
-  "warningFormat": "Formato: .webp",
+  "warningDescription": "Actualmente os pacotes wemoji são incompatíveis. \n - Temos alguns problemas com a optimização dos autocolantes animados, recomendamos que vá a https://ezgif.com/optiwebp para os optimizar; deve extrair o pacote final para obter os ficheiros, optimizar os autocolantes que excedam 500kb, uma vez terminados, copiá-los e inseri-los de volta no pacote e está feito.",
   "noShowMore": "Não voltar a aparecer",
   "acept": "Aceitar",
   "requiredMsgNamePack": "Pacote de Nomes Necessários",
@@ -27,7 +24,5 @@
   "requiredMsgDir": "Directório Obrigatório",
   "requiredMsgIcon": "Ícone Obrigatório",
   "successReady": "Está pronto!",
-  "successCreate": "Pacote criado com sucesso",
-  "notesVersion": "Notas da Versão",
-  "notesDescription": "- Actualmente os pacotes wemoji são incompatíveis. \n - Temos alguns problemas com a optimização dos autocolantes animados, recomendamos que vá a https://ezgif.com/optiwebp para os optimizar; deve extrair o pacote final para obter os ficheiros, optimizar os autocolantes que excedam 500kb, uma vez terminados, copiá-los e inseri-los de volta no pacote e está feito."
+  "successCreate": "Pacote criado com sucesso"
 }
