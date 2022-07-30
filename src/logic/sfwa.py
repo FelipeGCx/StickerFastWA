@@ -406,9 +406,8 @@ class Sfwa:
             img = img.convert("RGBA")
         # get the size of the image
         width, heigth = img.size
-        # create a exponential size for resize the image
-        # if the size is little, resize image the image to exponential size
-        value_resize = (width * 10, heigth * 10)
+        # create a correct dimensions
+        value_resize = (size,int(heigth * size / width)) if width > heigth else (int(width * size / heigth),size)
         # value_resize = (width_complete,heigth_complete)
         if width < size[0] or heigth < size[0]:
             img = img.resize(value_resize)
